@@ -96,8 +96,13 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 
 					case 4:
 					::MessageBeep(MB_ICONERROR);
-					result = a / b;
-					swprintf(resultText, 50, L"%f", result);
+					if (b == 0){
+						swprintf(resultText, 50, L"Cannot divide by 0");
+					}else{
+						result = a / b;
+						swprintf(resultText, 50, L"%f", result);
+					} 
+					
 					::MessageBox(hwnd, resultText, L"Result", MB_OK);
 					break;
 				}
